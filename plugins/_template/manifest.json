@@ -1,0 +1,28 @@
+{
+  "id": "my_model",
+  "name": "My model",
+  "version": "1.0.0",
+  "author": "",
+  "license": "",
+  "order": 100,
+  "description": {
+    "en": "Describe your model here (architecture, training data...).",
+    "es": "Describe aquí tu modelo (arquitectura, datos de entrenamiento...)."
+  },
+  "entry_point": "detector.py:Detector",
+  "sample_rate": 16000,
+  "weight": 1.0,
+  "default_threshold": 0.5,
+  "analysis": {
+    "window_seconds": 4.0,
+    "forensic_window_seconds": 4.0,
+    "forensic_hop_seconds": 1.0,
+    "batch_size": 1
+  },
+  "files": {
+    "checkpoint": "weights/model.pth"
+  },
+  "requirements": [
+    "torch"
+  ]
+}

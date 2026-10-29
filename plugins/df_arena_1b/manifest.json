@@ -1,0 +1,78 @@
+{
+  "id": "df_arena_1b",
+  "name": "DF-Arena 1B",
+  "version": "1.0.0",
+  "author": "Speech-Arena-2025 (Idiap)",
+  "license": "Non-commercial (research, teaching and personal use)",
+  "order": 10,
+  "family": "df_arena",
+  "family_name": "DF-Arena",
+  "description": {
+    "es": "Wav2Vec2 XLS-R 1B + Conformer. Antispoofing universal (habla, canto y entornos).",
+    "en": "Wav2Vec2 XLS-R 1B + Conformer. Universal anti-spoofing (speech, singing and environments)."
+  },
+  "hardware": {
+    "params_m": 1150,
+    "vram_gb": 6,
+    "ram_gb": 16,
+    "note": {
+      "es": "Versión grande: la más pesada y lenta.",
+      "en": "Large version: the heaviest and slowest."
+    }
+  },
+  "entry_point": "detector.py:DFArenaDetector",
+  "sample_rate": 16000,
+  "weight": 1.0,
+  "default_threshold": 0.5,
+  "analysis": {
+    "window_seconds": 4.0375,
+    "forensic_window_seconds": 4.0375,
+    "forensic_hop_seconds": 1.0,
+    "batch_size": 1
+  },
+  "files": {
+    "model_dir": "weights/DF_Arena_1B_V_1",
+    "xlsr_1b_config": "weights/wav2vec2-xls-r-1b"
+  },
+  "hf_config_redirects": {
+    "facebook/wav2vec2-xls-r-1b": "xlsr_1b_config"
+  },
+  "downloads": [
+    {
+      "name": "DF-Arena 1B weights and code",
+      "type": "huggingface",
+      "repo": "Speech-Arena-2025/DF_Arena_1B_V_1",
+      "revision": "fb6ce85de12c2c5a509d89114adaf827dd75f49f",
+      "target": "weights/DF_Arena_1B_V_1",
+      "license": "Non-commercial (research, teaching and personal use)",
+      "license_url": "https://huggingface.co/Speech-Arena-2025/DF_Arena_1B_V_1/blob/main/LICENSE.txt",
+      "requires_acceptance": true,
+      "files": [
+        {"path": "LICENSE.txt", "size": 3264, "sha256": "903d5ad67a67b3a919981892948e984bdf349053d54f1563c6497f48cdaf75b4"},
+        {"path": "README.md", "size": 3043, "sha256": "0f577f45eea69a99eb55404569c6efa814dfb15b22791bf33bc652c0e134d75a"},
+        {"path": "config.json", "size": 600, "sha256": "e9f6b651fb2f83d320b5e10b38bc104afdc57641839d16dd1b4921e9eae49a43"},
+        {"path": "preprocessor_config.json", "size": 147, "sha256": "e23aafe2a4a2a7c0caaefdc6e4b1e131774137fdeaa50fb5376764b05dacb3c7"},
+        {"path": "backbone.py", "size": 2344, "sha256": "397df32fb0b1a1296b292ec698e7edca44f98c5f2afe3655bf182ad01fa5a11c"},
+        {"path": "conformer.py", "size": 8741, "sha256": "84651dc9e81aaf4a32b400a621aa37e8f22e656a8207c5f4120cbb6e682c5540"},
+        {"path": "configuration_antispoofing.py", "size": 325, "sha256": "dd4a40789c2383896ce743effdd48cb6cdbd2f01c4bcdd7d4b71d7fb92869cf7"},
+        {"path": "feature_extraction_antispoofing.py", "size": 1046, "sha256": "f549bce974e527a5bf57fd5544ba793d35d99c5db8047600d1c905308a8aacf7"},
+        {"path": "modeling_antispoofing.py", "size": 822, "sha256": "a7925c0ba67ef090552e0c337be6e6b3efffd53c3193e2310b30675af968c624"},
+        {"path": "pipeline_antispoofing.py", "size": 1502, "sha256": "a308720d1be9fa6c948bd91648a1ec83a1465a178ae0da29f3cc48fe425170b4"},
+        {"path": "pytorch_model.bin", "size": 4591794734, "sha256": "780bc14fd4c15e65d58efdef728427cf03cd29cd60be528e97badf8c89087988"}
+      ]
+    },
+    {
+      "name": "XLS-R 1B configuration (Meta)",
+      "type": "huggingface",
+      "repo": "facebook/wav2vec2-xls-r-1b",
+      "revision": "35eaea9a0ed0f97592277d79208e40ab8917d1e3",
+      "target": "weights/wav2vec2-xls-r-1b",
+      "license": "Apache-2.0",
+      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "files": [
+        {"path": "config.json", "size": 1570, "sha256": "36668778db09d5c64090b62d6afb66ba63057304fe456a45388066ff7dabb997"}
+      ]
+    }
+  ],
+  "requirements": ["torch", "transformers", "einops"]
+}

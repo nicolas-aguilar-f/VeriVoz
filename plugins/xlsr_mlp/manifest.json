@@ -1,0 +1,59 @@
+{
+  "id": "xlsr_mlp",
+  "name": "XLSR-MLP",
+  "version": "1.0.0",
+  "author": "nicolas-aguilar-f",
+  "license": "See github.com/nicolas-aguilar-f/XLSR-MLP",
+  "order": 20,
+  "description": {
+    "es": "XLS-R 300M + MLP (2048→256→2) entrenado en HISPASpoof. Especializado en español.",
+    "en": "XLS-R 300M + MLP (2048→256→2) trained on HISPASpoof. Specialized in Spanish."
+  },
+  "hardware": {
+    "params_m": 320,
+    "vram_gb": 2,
+    "ram_gb": 8
+  },
+  "entry_point": "detector.py:XLSRMLPDetector",
+  "sample_rate": 16000,
+  "weight": 1.0,
+  "default_threshold": 0.5,
+  "analysis": {
+    "window_seconds": 15.0,
+    "forensic_window_seconds": 4.0,
+    "forensic_hop_seconds": 1.0,
+    "batch_size": 8
+  },
+  "files": {
+    "checkpoint": "weights/mlp_antispoofing_spanish.pth",
+    "backbone": "weights/wav2vec2-xls-r-300m"
+  },
+  "downloads": [
+    {
+      "name": "XLSR-MLP classifier (HISPASpoof)",
+      "type": "url",
+      "url": "https://raw.githubusercontent.com/nicolas-aguilar-f/XLSR-MLP/5d847952254368db46110546d8befe4425d12e9d/models/mlp_antispoofing_spanish.pth",
+      "page": "https://github.com/nicolas-aguilar-f/XLSR-MLP",
+      "target": "weights/mlp_antispoofing_spanish.pth",
+      "size": 2130927,
+      "sha256": "1cf2c1802303c2ba85a60ef961ecb53b344e64bddf876a04a4d3df973a24322f",
+      "license": "See the author's repository",
+      "license_url": "https://github.com/nicolas-aguilar-f/XLSR-MLP"
+    },
+    {
+      "name": "XLS-R 300M backbone (Meta)",
+      "type": "huggingface",
+      "repo": "facebook/wav2vec2-xls-r-300m",
+      "revision": "1a640f32ac3e39899438a2931f9924c02f080a54",
+      "target": "weights/wav2vec2-xls-r-300m",
+      "license": "Apache-2.0",
+      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "files": [
+        {"path": "config.json", "size": 1568, "sha256": "0bffa0d0e98153e883b828d86491f3c6062cb563dc9d7a9cfd1790da30c286ac"},
+        {"path": "preprocessor_config.json", "size": 212, "sha256": "a2254a5b58f72cd4de3632f8eee64f3f098b7c1402128d2f419e7d00ae13e335"},
+        {"path": "pytorch_model.bin", "size": 1269737156, "sha256": "d5e490574712ad0a6736923b9ed11d4cd51c78609c36205f704fc4e87b11d2e0"}
+      ]
+    }
+  ],
+  "requirements": ["torch", "transformers"]
+}

@@ -1,0 +1,21 @@
+# Python environment (created by install.bat)
+.venv/
+__pycache__/
+*.pyc
+
+# Model weights: downloaded from their official sources (see "downloads" in each manifest.json)
+plugins/*/weights/
+*.part
+
+# User data (settings, deleted models, cache)
+user_data/
+
+# Local copies of other repositories / old weight locations
+XLSR-MLP-main/
+DF_Arena_1B_V_1/
+
+# OS / editors
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini

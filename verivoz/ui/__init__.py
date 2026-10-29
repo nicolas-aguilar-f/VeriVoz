@@ -1,0 +1,1 @@
+"""Graphical interface (PySide6)."""

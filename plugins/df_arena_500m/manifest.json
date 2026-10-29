@@ -1,0 +1,78 @@
+{
+  "id": "df_arena_500m",
+  "name": "DF-Arena 500M",
+  "version": "1.0.0",
+  "author": "Speech-Arena-2025 (Idiap)",
+  "license": "Non-commercial (research, teaching and personal use)",
+  "order": 11,
+  "family": "df_arena",
+  "family_name": "DF-Arena",
+  "description": {
+    "es": "Wav2Vec2 XLS-R 300M + Conformer. Mismo modelo que la 1B con un backbone más pequeño.",
+    "en": "Wav2Vec2 XLS-R 300M + Conformer. Same model as the 1B with a smaller backbone."
+  },
+  "hardware": {
+    "params_m": 440,
+    "vram_gb": 3,
+    "ram_gb": 8,
+    "note": {
+      "es": "Versión ligera: menos memoria y más rápida.",
+      "en": "Light version: less memory and faster."
+    }
+  },
+  "entry_point": "detector.py:DFArenaDetector",
+  "sample_rate": 16000,
+  "weight": 1.0,
+  "default_threshold": 0.5,
+  "analysis": {
+    "window_seconds": 4.0375,
+    "forensic_window_seconds": 4.0375,
+    "forensic_hop_seconds": 1.0,
+    "batch_size": 1
+  },
+  "files": {
+    "model_dir": "weights/DF_Arena_500M_V_1",
+    "xlsr_300m_config": "weights/wav2vec2-xls-r-300m"
+  },
+  "hf_config_redirects": {
+    "facebook/wav2vec2-xls-r-300m": "xlsr_300m_config"
+  },
+  "downloads": [
+    {
+      "name": "DF-Arena 500M weights and code",
+      "type": "huggingface",
+      "repo": "Speech-Arena-2025/DF_Arena_500M_V_1",
+      "revision": "8258fa8e74ff9b8ad20d4c939c1a7f694a6e4080",
+      "target": "weights/DF_Arena_500M_V_1",
+      "license": "Non-commercial (research, teaching and personal use)",
+      "license_url": "https://huggingface.co/Speech-Arena-2025/DF_Arena_500M_V_1/blob/main/LICENSE.txt",
+      "requires_acceptance": true,
+      "files": [
+        {"path": "LICENSE.txt", "size": 3264, "sha256": "903d5ad67a67b3a919981892948e984bdf349053d54f1563c6497f48cdaf75b4"},
+        {"path": "README.md", "size": 3066, "sha256": "d1374459190c1488e72d3b9af6fc5951661f2344bac9e186659891fa150888bd"},
+        {"path": "config.json", "size": 606, "sha256": "20eae319f4365b295c8c3cec6af8ad1c42e8972c08c47ae3f07ce6b8584d3eab"},
+        {"path": "preprocessor_config.json", "size": 147, "sha256": "e23aafe2a4a2a7c0caaefdc6e4b1e131774137fdeaa50fb5376764b05dacb3c7"},
+        {"path": "backbone.py", "size": 2348, "sha256": "80d055b7b2c2f5b1b61f669b3ee8541a7fb649b45976b6b3d15982d2d2727cbc"},
+        {"path": "conformer.py", "size": 8741, "sha256": "84651dc9e81aaf4a32b400a621aa37e8f22e656a8207c5f4120cbb6e682c5540"},
+        {"path": "configuration_antispoofing.py", "size": 327, "sha256": "606730f25c1d53e79fe46814eac7ca2f376fbf8e07405717bc235412ecdccbe8"},
+        {"path": "feature_extraction_antispoofing.py", "size": 1046, "sha256": "f549bce974e527a5bf57fd5544ba793d35d99c5db8047600d1c905308a8aacf7"},
+        {"path": "modeling_antispoofing.py", "size": 834, "sha256": "2e8d5e478460f38d837cb81cc85b56259ffc02fb465ad5197d7be5df82a8cee1"},
+        {"path": "pipeline_antispoofing.py", "size": 1502, "sha256": "a308720d1be9fa6c948bd91648a1ec83a1465a178ae0da29f3cc48fe425170b4"},
+        {"path": "pytorch_model.bin", "size": 1745031842, "sha256": "ebd7662047f3b33a6a0fcb9d205bbdcea07220bf42853ae57c6cf4d8e40f66a2"}
+      ]
+    },
+    {
+      "name": "XLS-R 300M configuration (Meta)",
+      "type": "huggingface",
+      "repo": "facebook/wav2vec2-xls-r-300m",
+      "revision": "1a640f32ac3e39899438a2931f9924c02f080a54",
+      "target": "weights/wav2vec2-xls-r-300m",
+      "license": "Apache-2.0",
+      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "files": [
+        {"path": "config.json", "size": 1568, "sha256": "0bffa0d0e98153e883b828d86491f3c6062cb563dc9d7a9cfd1790da30c286ac"}
+      ]
+    }
+  ],
+  "requirements": ["torch", "transformers", "einops"]
+}

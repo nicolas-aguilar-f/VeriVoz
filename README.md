@@ -1,5 +1,7 @@
 # VeriVoz — synthetic voice detector
-
+<p align="center">
+  <img src="docs/images/verivoz_banner.png" alt="VeriVoz" width="500">
+</p>
 Desktop app (Python + PySide6) that analyzes audio with several anti-spoofing models to tell whether a voice is real or was generated/manipulated with AI. Multi-engine style: each model gives its verdict and they are combined into a total score.
 
 ## Installation (Windows 10/11)
